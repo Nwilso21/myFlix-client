@@ -27306,77 +27306,65 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _bookCard = require("../book-card/book-card");
-var _bookView = require("../BookView/book-view");
+var _movieCard = require("../Movie-Card/movie-Card");
+var _movieView = require("../Movie-View/Movie-View");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [books, setBooks] = (0, _react.useState)([
+    const [movies, setMovies] = (0, _react.useState)([
         {
             id: 1,
-            title: "Eloquent JavaScript",
-            image: "https://images-na.ssl-images-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
-            author: "Marijn Haverbeke"
+            title: "Django: Unchained",
+            image: "https://m.media-amazon.com/images/I/913bZDh0T5L._AC_UY218_.jpg",
+            Director: "Quentin Tarentino"
         },
         {
             id: 2,
-            title: "Mastering JavaScript Functional Programming",
-            image: "https://images-na.ssl-images-amazon.com/images/I/51WAikRq37L._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-            author: "Federico Kereki"
+            title: "Avengers: Endgame",
+            image: "https://m.media-amazon.com/images/I/91e9898R7QL._AC_UY218_.jpg",
+            Director: "Anthony and Joe Russo"
         },
         {
             id: 3,
-            title: "JavaScript: The Good Parts",
-            image: "https://images-na.ssl-images-amazon.com/images/I/5131OWtQRaL._SX381_BO1,204,203,200_.jpg",
-            author: "Douglas Crockford"
-        },
-        {
-            id: 4,
-            title: "JavaScript: The Definitive Guide",
-            image: "https://images-na.ssl-images-amazon.com/images/I/51HbNW6RzhL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-            author: "David Flanagan"
-        },
-        {
-            id: 5,
-            title: "The Road to React",
-            image: "https://images-na.ssl-images-amazon.com/images/I/41MBLi5a4jL._SX384_BO1,204,203,200_.jpg",
-            author: "Robin Wieruch"
+            title: "Avatar",
+            image: "https://m.media-amazon.com/images/I/81zsYe3WUgL._AC_UY218_.jpg",
+            Director: "James Cameron"
         }
     ]);
-    const [selectedBook, setSelectedBook] = (0, _react.useState)(null);
-    if (selectedBook) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookView.BookView), {
-        book: selectedBook,
-        onBackClick: ()=>setSelectedBook(null)
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 48,
+        lineNumber: 34,
         columnNumber: 7
     }, undefined);
-    if (books.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 53,
+        lineNumber: 39,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: books.map((book)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
-                book: book,
-                onBookClick: (newSelectedBook)=>{
-                    setSelectedBook(newSelectedBook);
+        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
                 }
-            }, book.id, false, {
+            }, movie.id, false, {
                 fileName: "src/components/MainView/main-view.jsx",
-                lineNumber: 59,
+                lineNumber: 45,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 57,
+        lineNumber: 43,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "ONer5o2SQeyLS2Fub1a8q1cXv4k=");
+_s(MainView, "fvSQJAGqLKfcR7Ed/QwOrLjHJns=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27386,7 +27374,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"Tfmqt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"efkfa","react":"21dqq","../book-card/book-card":"8FC36","../BookView/book-view":"gSP62"}],"Tfmqt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"Tfmqt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"efkfa","react":"21dqq","../Movie-Card/movie-Card":"gfvQK","../Movie-View/Movie-View":"1caMM"}],"Tfmqt":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27416,62 +27404,62 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"8FC36":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$1994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{}],"gfvQK":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6e6d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$1994.prelude(module);
+$parcel$ReactRefreshHelpers$6e6d.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "BookCard", ()=>BookCard);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const BookCard = ({ book, onBookClick })=>{
+const MovieCard = ({ movie, onMovieClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         onClick: ()=>{
-            onBookClick(book);
+            onMovieClick(movie);
         },
-        children: book.title
+        children: movie.title
     }, void 0, false, {
-        fileName: "src/components/book-card/book-card.jsx",
+        fileName: "src/components/Movie-Card/movie-Card.jsx",
         lineNumber: 3,
         columnNumber: 7
     }, undefined);
 };
-_c = BookCard;
+_c = MovieCard;
 var _c;
-$RefreshReg$(_c, "BookCard");
+$RefreshReg$(_c, "MovieCard");
 
-  $parcel$ReactRefreshHelpers$1994.postlude(module);
+  $parcel$ReactRefreshHelpers$6e6d.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"Tfmqt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"efkfa"}],"gSP62":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2dc5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"Tfmqt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"efkfa"}],"1caMM":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1bdf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2dc5.prelude(module);
+$parcel$ReactRefreshHelpers$1bdf.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "BookView", ()=>BookView);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const BookView = ({ book, onBackClick })=>{
+const MovieView = ({ movie, onBackClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: book.image
+                    src: movie.image
                 }, void 0, false, {
-                    fileName: "src/components/BookView/book-view.jsx",
+                    fileName: "src/components/Movie-View/Movie-View.jsx",
                     lineNumber: 5,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
-                fileName: "src/components/BookView/book-view.jsx",
+                fileName: "src/components/Movie-View/Movie-View.jsx",
                 lineNumber: 4,
                 columnNumber: 9
             }, undefined),
@@ -27480,42 +27468,42 @@ const BookView = ({ book, onBackClick })=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "Title: "
                     }, void 0, false, {
-                        fileName: "src/components/BookView/book-view.jsx",
+                        fileName: "src/components/Movie-View/Movie-View.jsx",
                         lineNumber: 8,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: book.title
+                        children: movie.title
                     }, void 0, false, {
-                        fileName: "src/components/BookView/book-view.jsx",
+                        fileName: "src/components/Movie-View/Movie-View.jsx",
                         lineNumber: 9,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "src/components/BookView/book-view.jsx",
+                fileName: "src/components/Movie-View/Movie-View.jsx",
                 lineNumber: 7,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: "Author: "
+                        children: "Director: "
                     }, void 0, false, {
-                        fileName: "src/components/BookView/book-view.jsx",
+                        fileName: "src/components/Movie-View/Movie-View.jsx",
                         lineNumber: 12,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: book.author
+                        children: movie.Director
                     }, void 0, false, {
-                        fileName: "src/components/BookView/book-view.jsx",
+                        fileName: "src/components/Movie-View/Movie-View.jsx",
                         lineNumber: 13,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "src/components/BookView/book-view.jsx",
+                fileName: "src/components/Movie-View/Movie-View.jsx",
                 lineNumber: 11,
                 columnNumber: 9
             }, undefined),
@@ -27523,22 +27511,22 @@ const BookView = ({ book, onBackClick })=>{
                 onClick: onBackClick,
                 children: "Back"
             }, void 0, false, {
-                fileName: "src/components/BookView/book-view.jsx",
+                fileName: "src/components/Movie-View/Movie-View.jsx",
                 lineNumber: 15,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
-        fileName: "src/components/BookView/book-view.jsx",
+        fileName: "src/components/Movie-View/Movie-View.jsx",
         lineNumber: 3,
         columnNumber: 7
     }, undefined);
 };
-_c = BookView;
+_c = MovieView;
 var _c;
-$RefreshReg$(_c, "BookView");
+$RefreshReg$(_c, "MovieView");
 
-  $parcel$ReactRefreshHelpers$2dc5.postlude(module);
+  $parcel$ReactRefreshHelpers$1bdf.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
