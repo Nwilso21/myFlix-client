@@ -1,33 +1,29 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { MovieCard } from "../Movie-Card/movie-Card";
 import { MovieView } from "../Movie-View/Movie-View";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: "Django: Unchained",
-      image:
-        "https://m.media-amazon.com/images/I/913bZDh0T5L._AC_UY218_.jpg",
-      Director: "Quentin Tarentino"
-    },
-    {
-      id: 2,
-      title: "Avengers: Endgame",
-      image:
-        "https://m.media-amazon.com/images/I/91e9898R7QL._AC_UY218_.jpg",
-        Director: "Anthony and Joe Russo"
-    },
-    {
-      id: 3,
-      title: "Avatar",
-      image:
-        "https://m.media-amazon.com/images/I/81zsYe3WUgL._AC_UY218_.jpg",
-        Director: "James Cameron"
-    }
-  ]);
+  const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+  
+  useEffect(() => {
+    fetch("https://openlibrary.org/search.json?q=star+wars")
+      .then((response) => response.json())
+      .then((data) => {
+        const booksFromApi = data.docs.map((doc) => {
+          return {
+            id: doc.key,
+            title: doc.title,
+            image:
+`https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
+            Director: doc.author_name?.[0]
+          };
+        });
+
+        setMovies(booksFromApi);
+      });
+  }, []);
 
   if (selectedMovie) {
     return (
