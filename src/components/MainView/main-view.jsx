@@ -1,29 +1,41 @@
 import { useState,useEffect } from "react";
+import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../Movie-Card/movie-Card";
 import { MovieView } from "../Movie-View/Movie-View";
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
-  
+  const [user , setuser] = useState(null);
   useEffect(() => {
-    fetch("https://openlibrary.org/search.json?q=star+wars")
+    fetch("https://vast-garden-26469-856928a3215d.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const booksFromApi = data.docs.map((doc) => {
+        const moviesFromApi = data.map((movie) => {
           return {
-            id: doc.key,
-            title: doc.title,
-            image:
-`https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-            Director: doc.author_name?.[0]
+            Genre : {
+              Name : movie.Genre.Title,
+              Description : movie.Genre.Description
+            },
+            Director : movie.Director.name,
+            Actors : movie.Actors,
+            _id: movie.key,
+            title: movie.Title,
+            Description : movie.Description,
+            ImagePath : movie.ImagePath,
+            Featured : movie.Featured
           };
         });
 
-        setMovies(booksFromApi);
+        
+
+        setMovies(moviesFromApi);
       });
   }, []);
+
+  if(!user){
+    return <LoginView />;
+  }
 
   if (selectedMovie) {
     return (
