@@ -2,13 +2,22 @@ import { useState,useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../Movie-Card/movie-Card";
 import { MovieView } from "../Movie-View/Movie-View";
+import {SignupView} from "../signup-view/signup-view";
 
 export const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
+  const [user , setUser] = useState(storedUser? storedUser : null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user , setuser] = useState(null);
   useEffect(() => {
-    fetch("https://vast-garden-26469-856928a3215d.herokuapp.com/movies")
+    if(!token){
+      return;
+    }
+    fetch("https://vast-garden-26469-856928a3215d.herokuapp.com/movies",{
+      headers : {Authorization : 'Bearer ${token'}
+    })
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((movie) => {
@@ -31,10 +40,19 @@ export const MainView = () => {
 
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
 
-  if(!user){
-    return <LoginView />;
+  if (!user) {
+    return (
+      <>
+        <LoginView onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }} />
+        or
+        <SignupView />
+      </>
+    );
   }
 
   if (selectedMovie) {
@@ -58,6 +76,7 @@ export const MainView = () => {
           }}
         />
       ))}
+      <button onClick={() => { setUser(null); setToken(null); localStorage.clear();}}>Logout</button>
     </div>
   );
 };
