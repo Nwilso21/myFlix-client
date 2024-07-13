@@ -1,8 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { MainView } from "./components/MainView/main-view";
 import Container from 'react-bootstrap/Container';
-import { store } from "./redux/store";
-import { Provider } from "react-redux";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
