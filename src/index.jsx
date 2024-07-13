@@ -8,13 +8,12 @@ import "./index.scss";
 
 const App = () => {
     return (
-    <Provider store={store}>
-    <Container>
-    <MainView />
-    </Container>
-    </Provider>
+        <Container style={{border: "1px solid red"}}>
+           <MainView />
+        </Container>
+   
     );
-    };
+   };
     
 
 const container = document.querySelector("#root");
