@@ -7,7 +7,7 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav}) => {
     const [email] = useState(user.Email);
     const [birthday] = useState(user.Birthday);
     const navigate = useNavigate();
-    const favoriteMovieList = movies.filter(m => user.FavoriteMovies.includes(m._id));
+    const favoriteMovieList = movies.filter(m => user.FavoriteMovies);
     const token = localStorage.getItem('token');
 
     const Update = (event) => {
@@ -69,7 +69,6 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav}) => {
       <p>Name: {user.Username}</p>
       <p>Email: {user.Email}</p>
       <p>Birthday: {user.Birthday}</p>
-      <div>Form onSubmit = Update</div>
       <div>
       <h2 className="mt-5 text-center text-md-start">Favorite Movies</h2>
                 <Row className="justify-content-center">

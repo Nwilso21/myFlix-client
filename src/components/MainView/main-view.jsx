@@ -8,6 +8,9 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { Form } from "react-bootstrap";
+import {InputGroup} from 'react-bootstrap';
+
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -15,7 +18,9 @@ export const MainView = () => {
   const [user , setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [Search, setSearch] =useState('');
+  console.log(Search);
+
   useEffect(() => {
     if(!token){
       return;
@@ -29,7 +34,8 @@ export const MainView = () => {
           return {
             title: movie.Title,
             Director : movie.Director.Name,
-            Description : movie.Description
+            Description : movie.Description,
+            Genre : movie.Genre
           };
         });
 
@@ -71,7 +77,10 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView onLoggedIn={(user,token) =>{
+
+                     setUser(user);
+                     setToken(token)}} />
                   </Col>
                 )}
               </>
@@ -122,15 +131,27 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    {movies.map((movie) => (
+                  <Form>
+                <InputGroup className='my-3'>
+                  <Form.Control
+                  onChange={(e) =>setSearch(e.target.value)}
+                  placeholder='Search a movie title'
+                  />
+                </InputGroup>
+              </Form>
+                    {movies.filter((movie =>{
+                      return Search.toLowerCase() ==='' ? movie : movie.title.toLowerCase().includes(Search);
+                    })).map((movie) => (
+                      
                       <Col className="mb-4" key={movie.id} md={3}>
-                        <BookCard movie={movie} />
+                        <MovieCard movie={movie} />
                       </Col>
                     ))}
                   </>
                 )}
               </>
             }
+
           />
         </Routes>
       </Row>
